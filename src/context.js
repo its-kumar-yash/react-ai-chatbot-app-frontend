@@ -35,17 +35,15 @@ const AppProvider = ({ children }) => {
 
     try {
       setProcessing(true);
-      const res = await fetch(`https://intellichat-backend.onrender.com`,
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({
-            messages: tempMessages.slice(-8),
-          }),
-        }
-      );
+      const res = await fetch(`https://intellichat-backend.onrender.com`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          messages: tempMessages.slice(-8),
+        }),
+      });
       setProcessing(false);
 
       const data = await res.json();
